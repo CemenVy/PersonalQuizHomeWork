@@ -14,5 +14,13 @@ final class ResultViewController: UIViewController {
 
     }
     
+    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+    
+    deinit {
+        print("\(type(of: self)) has been deallocated")
+    }
+    
 
 }

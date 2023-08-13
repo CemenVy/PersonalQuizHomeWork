@@ -197,7 +197,6 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Ответить"/>
                                         <connections>
                                             <action selector="multipleAnswerButtonPressed" destination="aTy-ee-C0R" eventType="touchUpInside" id="SWV-8t-tk8"/>
-                                            <segue destination="YCx-1m-KiL" kind="show" identifier="showResult" id="Cfu-32-dcB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -281,6 +280,7 @@
                         <outletCollection property="multipleSwitches" destination="w2X-O9-yuS" collectionClass="NSMutableArray" id="Has-6B-ReW"/>
                         <outletCollection property="multipleSwitches" destination="4hA-KL-mGf" collectionClass="NSMutableArray" id="a5N-db-Ltj"/>
                         <outletCollection property="multipleSwitches" destination="C32-Xs-hAk" collectionClass="NSMutableArray" id="RqC-Zg-C2z"/>
+                        <segue destination="YCx-1m-KiL" kind="show" identifier="showResult" id="HZ2-X0-Uiy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xik-vo-g9U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -322,7 +322,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Результат" id="hLe-dl-Ctb">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="2zX-OR-4M4"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="2zX-OR-4M4">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="YCx-1m-KiL" id="0F0-lU-hJb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3G-en-TVa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

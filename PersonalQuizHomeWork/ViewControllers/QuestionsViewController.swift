@@ -25,16 +25,20 @@ final class QuestionsViewController: UIViewController {
     @IBOutlet var rangedLabels: [UILabel]!
     
     // MARK: - Private Properties
-    private let questions = Question.getQuestions()
     private var questionIndex = 0
+    private let questions = Question.getQuestions()
     private var answersChosen: [Answer] = []
     private var currentAnswers: [Answer] {
         questions[questionIndex].answers
     }
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateUI()
+        let answerCount = Float(currentAnswers.count - 1)
+        rangedSlider.maximumValue = answerCount
+        rangedSlider.value = answerCount / 2
     }
     
     //MARK: - IB Actions
@@ -53,6 +57,7 @@ final class QuestionsViewController: UIViewController {
         }
         nextQuestion()
     }
+    
     @IBAction func rangedAnswerButtonPressed() {
         let index = lrintf(rangedSlider.value)
         answersChosen.append(currentAnswers[index])
