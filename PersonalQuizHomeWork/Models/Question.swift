@@ -15,7 +15,7 @@ struct Question {
     static func getQuestions() -> [Question] {
         [
             Question(
-                title: "Какую пищу вы любите?",
+                title: "Какую пищу предпочитаете?",
                 type: .single,
                 answers: [
                     Answer(title: "Стейк", animal: .dog),
@@ -28,10 +28,10 @@ struct Question {
                 title: "Что вам нравится больше?",
                 type: .multiple,
                 answers: [
-                    Answer(title: "Плавать", animal: .turtle),
-                    Answer(title: "Есть", animal: .dog),
+                    Answer(title: "Плавать", animal: .dog),
                     Answer(title: "Спать", animal: .cat),
-                    Answer(title: "Обниматься", animal: .rabbit)
+                    Answer(title: "Обиматься", animal: .rabbit),
+                    Answer(title: "Есть", animal: .turtle)
                 ]
             ),
             Question(
@@ -54,9 +54,14 @@ enum ResponseType {
     case ranged
 }
 
-struct Answer {
+struct Answer: Equatable, Hashable {
     let title: String
     let animal: Animal
+    
+    func hash(into hasher: inout Hasher) {
+          hasher.combine(title)
+          hasher.combine(animal)
+      }
 }
 
 enum Animal: Character {
