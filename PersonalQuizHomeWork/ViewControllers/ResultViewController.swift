@@ -19,6 +19,8 @@ final class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UpdateResult()
+        
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     //MARK: - IB Actions
