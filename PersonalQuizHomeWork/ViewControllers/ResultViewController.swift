@@ -20,7 +20,7 @@ final class ResultViewController: UIViewController {
         super.viewDidLoad()
         UpdateResult()
         
-        navigationItem.setHidesBackButton(true, animated: true)
+        navigationItem.setHidesBackButton(true, animated: false)
     }
     
     //MARK: - IB Actions
